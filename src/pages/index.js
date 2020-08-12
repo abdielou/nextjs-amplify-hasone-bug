@@ -57,7 +57,6 @@ function Home() {
       })
   }
 
-
   function deleteProject(project) {
     try {
       console.warn(project)
@@ -72,22 +71,27 @@ function Home() {
 
       <main className={styles.main}>
         <AmplifySignOut />
-        <h1 className={styles.title}>
-          Hello
-        </h1>
-        <button onClick={() => createProject()}>CREATE</button>
 
-        {projects.map(project => {
-          const { id, name, teamID } = project
-          return (
-            <div key={id}>
-              <div>
-                {id} || {name} || {teamID}
+        <div style={{ marginTop: 20 }}>
+          <button onClick={() => createProject()}>CREATE</button>
+        </div>
+
+        <div style={{ marginTop: 50, marginBottom: 50 }}>
+          <h3>Projects</h3>
+          {projects.map(project => {
+            const { id, teamID } = project
+            return (
+              <div key={id} style={{ display: "flex" }}>
+                <div style={{ margin: 5 }}>{id.slice(-4)} :: </div>
+                <div style={{ margin: 5 }}>{teamID.slice(-4)}</div>
+                <div style={{ margin: 5 }}>{
+                  teams.find(team => team.id === teamID) ? "✅" : "⛔"
+                }</div>
+                <button onClick={() => deleteProject(project)}>DELETE</button>
               </div>
-              <button onClick={() => deleteProject(project)}>DELETE</button>
-            </div>
-          )
-        })}
+            )
+          })}
+        </div>
       </main>
 
     </div>
