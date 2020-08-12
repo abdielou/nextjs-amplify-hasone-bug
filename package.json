@@ -8,6 +8,10 @@
     "start": "next start"
   },
   "dependencies": {
+    "@aws-amplify/datastore": "^2.2.9",
+    "@aws-amplify/storage": "^3.2.12",
+    "@aws-amplify/ui-react": "^0.2.14",
+    "aws-amplify": "^3.0.23",
     "next": "9.5.2",
     "react": "16.13.1",
     "react-dom": "16.13.1"
